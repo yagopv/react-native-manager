@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+import LoginForm from './src/components/LoginForm';
 import reducers from './src/reducers';
 
 export default class App extends Component {
@@ -15,15 +16,13 @@ export default class App extends Component {
       projectId: "reactnativeauth-f4ea8",
       storageBucket: "reactnativeauth-f4ea8.appspot.com", 
       messagingSenderId: "1089079357899"
-    });
+    }); 
   }
 
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <View>          
-          <Text>Hello</Text>
-        </View>
+        <LoginForm />
       </Provider>
     );
   }
