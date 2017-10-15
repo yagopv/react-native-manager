@@ -27,12 +27,14 @@ class LoginForm extends React.Component {
           <Input 
             label="Email"
             placeholder="username@mail.com"
+            value={this.props.email}
             onChangeText={this.onEmailChange} />
         </CardSection>
         <CardSection>
           <Input 
             label="Password"
             placeholder="Enter your password"
+            value={this.props.password}
             secureTextEntry 
             onChangeText={this.onPasswordChange} />
         </CardSection>
@@ -46,5 +48,11 @@ class LoginForm extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    email: state.auth.email,
+    password: state.auth.password
+  }
+}
 
-export default connect(null, actions)(LoginForm);
+export default connect(mapStateToProps, actions)(LoginForm);
