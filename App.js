@@ -3,10 +3,7 @@ import Store from './src/store';
 import LoginForm from './src/components/LoginForm';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
-
-import LoginScreen from './src/screens/LoginScreen';
-import EmployeeCreateScreen from './src/screens/EmployeeCreateScreen';
-import EmployeeListScreen from './src/screens/EmployeeListScreen';
+import AppWithNavigationState from './src/navigators/AppNavigator';
 import { View } from 'react-native'; 
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
@@ -31,7 +28,7 @@ export default class App extends Component {
  
     return (
       <Provider store={Store}>
-        <MainNavigator />
+        <AppWithNavigationState />
       </Provider>
     );
   }
