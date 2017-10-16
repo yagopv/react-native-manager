@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import firebase from 'firebase';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import ReduxThunk from 'redux-thunk';
-
+import Store from './src/store';
 import LoginForm from './src/components/LoginForm';
-import reducers from './src/reducers';
+import { Provider } from 'react-redux';
+import firebase from 'firebase';
+
+import LoginScreen from './src/screens/LoginScreen';
+import EmployeeCreateScreen from './src/screens/EmployeeCreateScreen';
+import EmployeeListScreen from './src/screens/EmployeeListScreen';
+import { View } from 'react-native'; 
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 export default class App extends Component {
   componentWillMount() {
     firebase.initializeApp({
-      apiKey: "AIzaSyC2OQC3gPsCR1nsw21sbuj0mRwLFWmLGOw",
+      apiKey: "AIzaSyC2OQC3gPsCR1nsw21sbuj0mRwLFWmLGOw", 
       authDomain: "reactnativeauth-f4ea8.firebaseapp.com",
       databaseURL: "https://reactnativeauth-f4ea8.firebaseio.com",
       projectId: "reactnativeauth-f4ea8",
       storageBucket: "reactnativeauth-f4ea8.appspot.com", 
       messagingSenderId: "1089079357899"
-    }); 
+    });
   }
 
   render() {
+    const MainNavigator = StackNavigator({
+      login: { screen: LoginScreen },
+      employeeList: { screen: EmployeeListScreen },
+      employeeCreate: { screen: EmployeeCreateScreen }
+    });
+ 
     return (
-      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-        <LoginForm />
+      <Provider store={Store}>
+        <MainNavigator />
       </Provider>
     );
   }

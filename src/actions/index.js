@@ -11,25 +11,26 @@ export const passwordChanged = (text) => ({
   payload: text 
 });
 
-export const loginUser = ({ email, password }) => {
+export const loginUser = ({ email, password }, cb) => {
   return (dispatch) => {
     dispatch({ type: LOGIN_USER });
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(user => loginUserSuccess(dispatch, user))
+      .then(user => loginUserSuccess(dispatch, user, cb))
       .catch((error) => {
         console.log(error);
         firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then(user => loginUserSuccess(dispatch, user))
+          .then(user => loginUserSuccess(dispatch, user)) 
           .catch(error => loginUserFailed(dispatch, error));
       });
   }
 }
 
-const loginUserSuccess = (dispatch, user) => {
+const loginUserSuccess = (dispatch, user, cb) => {
   dispatch({
     type: LOGIN_USER_SUCCESS, 
     payload: user
-  });
+  });  
+  cb();
 }
 
 const loginUserFailed = (dispatch, error) => {
