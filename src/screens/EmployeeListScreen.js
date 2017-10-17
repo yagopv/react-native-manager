@@ -8,7 +8,7 @@ export default class EmployeeListScreen extends Component {
       title: 'Employee List',
       headerRight: (
         <TouchableOpacity            
-          onPress={() => navigation.navigate('employeeCreate')}>
+          onPress={() => navigation.navigate('employee')}>
           <Text style={{ backgroundColor: 'rgba(0,0,0,0)', color: 'rgba(0,122,255,1)'}}>
           Create Employee
           </Text>

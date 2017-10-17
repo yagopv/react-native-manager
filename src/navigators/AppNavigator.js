@@ -5,12 +5,12 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import LoginScreen from '../screens/LoginScreen';
 import EmployeeListScreen from '../screens/EmployeeListScreen';
-import EmployeeCreateScreen from '../screens/EmployeeCreateScreen';
+import EmployeeScreen from '../screens/EmployeeScreen';
 
 export const AppNavigator = StackNavigator({
   login: { screen: LoginScreen },
   employeeList: { screen: EmployeeListScreen },
-  employeeCreate: { screen: EmployeeCreateScreen }
+  employee: { screen: EmployeeScreen }
 });
 
 const AppWithNavigationState = ({ dispatch, nav }) => (

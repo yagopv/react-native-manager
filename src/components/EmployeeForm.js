@@ -53,7 +53,7 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  const { name, phone, shift } = state.employeeForm;
+  const { name, phone, shift } = state.employeeForm; 
 
   return { name, phone, shift };
 };

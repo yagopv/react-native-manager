@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Communications from 'react-native-communications';
+//import Communications from 'react-native-communications';
 import EmployeeForm from './EmployeeForm';
 import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
 import { Card, CardSection, Button, Confirm } from './common';
@@ -22,9 +22,9 @@ class EmployeeEdit extends Component {
   }
 
   onTextPress() {
-    const { phone, shift } = this.props;
+    const { phone, shift } = this.props; 
 
-    Communications.text(phone, `Your upcoming shift is on ${shift}`);
+    //Communications.text(phone, `Your upcoming shift is on ${shift}`);  
   }
 
   onAccept() {

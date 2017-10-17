@@ -22,6 +22,7 @@ export default (state = initialState, action) => {
       );
       break;  
     case EMPLOYEE_CREATE:
+    case EMPLOYEE_SAVE_SUCCESS:
       nextState = AppNavigator.router.getStateForAction(NavigationActions.back(), state);
       break;
     default:
