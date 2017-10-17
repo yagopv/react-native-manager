@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native';
+import EmployeeForm from '../components/EmployeeForm'; 
 
 export default class EmployeeCreateScreen extends Component {
   static navigationOptions = {
@@ -8,11 +9,7 @@ export default class EmployeeCreateScreen extends Component {
 
   render() {
     return (
-      <View>
-          <Text>EmployeeCreate</Text>
-          <Text>EmployeeCreate</Text>
-          <Text>EmployeeCreate</Text>
-      </View>
+      <EmployeeForm navigation={this.props.navigation} /> 
     )
   }
 }

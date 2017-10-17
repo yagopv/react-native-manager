@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Text, StyleSheet } from 'react-native';
-import * as actions from '../actions';
+import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 import { Card, CardSection, Input, Button, Spinner } from './common';
 
@@ -25,10 +25,8 @@ class LoginForm extends React.Component {
   onButtonPress() {
     const { email, password } = this.props;
 
-    this.props.loginUser({ email, password }, () => {
-      this.props.navigation.navigate('employeeList');
-    });
-  }
+    this.props.loginUser({ email, password });
+  }  
 
   renderButton() {
     if (this.props.loading) {
@@ -88,4 +86,4 @@ const mapStateToProps = ({ auth }) => {
   return { email, password, error, loading };
 }
 
-export default connect(mapStateToProps, actions)(LoginForm);
+export default connect(mapStateToProps, {emailChanged, passwordChanged, loginUser})(LoginForm);

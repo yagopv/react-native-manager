@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import LoginScreen from '../screens/LoginScreen';
-import EmployeeListScreen from '../screens/MainScreen';
-import EmployeeCreateScreen from '../screens/ProfileScreen';
+import EmployeeListScreen from '../screens/EmployeeListScreen';
+import EmployeeCreateScreen from '../screens/EmployeeCreateScreen';
 
 export const AppNavigator = StackNavigator({
   login: { screen: LoginScreen },
@@ -18,7 +18,7 @@ const AppWithNavigationState = ({ dispatch, nav }) => (
 );
 
 const mapStateToProps = state => ({
-  nav: state.nav,
+  nav: state.nav
 });
 
 export default connect(mapStateToProps)(AppWithNavigationState);

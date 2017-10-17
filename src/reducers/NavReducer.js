@@ -6,16 +6,21 @@ import { AppNavigator } from '../navigators/AppNavigator';
 const firstAction = AppNavigator.router.getActionForPathAndParams('login');
 const initialState = AppNavigator.router.getStateForAction(firstAction);
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, action) => {
   let nextState;
 
-  switch (type) {
+  switch (action.type) {
     case LOGIN_USER_SUCCESS:
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'employeeList' }),
+        NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'employeeList'})
+          ]
+        }),
         state
       );
-      break;
+      break;  
 
     default:
        nextState = AppNavigator.router.getStateForAction(action, state);

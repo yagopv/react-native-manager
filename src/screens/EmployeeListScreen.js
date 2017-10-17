@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 export default class EmployeeListScreen extends Component {
-  static navigationOptions = {
-    title: 'Employee List'
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Employee List',
+      headerRight: (
+        <TouchableOpacity            
+          onPress={() => navigation.navigate('employeeCreate')}>
+          <Text style={{ backgroundColor: 'rgba(0,0,0,0)', color: 'rgba(0,122,255,1)'}}>
+          Create Employee
+          </Text>
+        </TouchableOpacity>        
+      ) 
+    }   
   }
 
   render() {
     return (
       <View>
-          <Text>EmployeeList</Text>
-          <Text>EmployeeList</Text>
-          <Text>EmployeeList</Text>          
+        <Text>EmployeeList</Text>          
       </View>
     )
   }
