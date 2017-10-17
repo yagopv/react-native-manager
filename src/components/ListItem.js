@@ -3,8 +3,8 @@ import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { CardSection } from './common';
 
 class ListItem extends Component {
-  onRowPress() {        
-    Actions.employeeEdit({ employee: this.props.employee });
+  onRowPress() {
+    this.props.navigation.navigate('employeeCreate'); 
   }
 
   render() {

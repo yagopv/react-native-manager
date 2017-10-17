@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native';
+import EmployeeList from '../components/EmployeeList';
 
 export default class EmployeeListScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,11 +17,9 @@ export default class EmployeeListScreen extends Component {
     }   
   }
 
-  render() {
+  render() { 
     return (
-      <View>
-        <Text>EmployeeList</Text>          
-      </View>
+      <EmployeeList navigation={this.props.navigation} />
     )
   }
 }

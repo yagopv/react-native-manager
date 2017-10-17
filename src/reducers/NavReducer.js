@@ -1,6 +1,6 @@
 import { NavigationActions } from 'react-navigation';
 
-import { LOGIN_USER_SUCCESS } from '../actions/types';
+import { LOGIN_USER_SUCCESS, EMPLOYEE_CREATE } from '../actions/types';
 import { AppNavigator } from '../navigators/AppNavigator';
 
 const firstAction = AppNavigator.router.getActionForPathAndParams('login');
@@ -21,7 +21,9 @@ export default (state = initialState, action) => {
         state
       );
       break;  
-
+    case EMPLOYEE_CREATE:
+      nextState = AppNavigator.router.getStateForAction(NavigationActions.back(), state);
+      break;
     default:
        nextState = AppNavigator.router.getStateForAction(action, state);
   }
