@@ -1,6 +1,6 @@
 import { NavigationActions } from 'react-navigation';
 
-import { LOGIN_USER_SUCCESS, EMPLOYEE_CREATE } from '../actions/types';
+import { LOGIN_USER_SUCCESS, EMPLOYEE_CREATE, EMPLOYEE_SAVE_SUCCESS } from '../actions/types';
 import { AppNavigator } from '../navigators/AppNavigator';
 
 const firstAction = AppNavigator.router.getActionForPathAndParams('login');

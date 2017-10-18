@@ -9,13 +9,13 @@ export default class EmployeeScreen extends Component {
   }
 
   render() {
-    const { employee } = this.props.navigation.state.params;
-
-    if (employee) {
-      return <EmployeeEdit navigation={this.props.navigation} employee={employee} />
+    if (this.props.navigation.state.params && this.props.navigation.state.params.employee) {
+      return <EmployeeEdit 
+                navigation={this.props.navigation} 
+                employee={this.props.navigation.state.params.employee} />
     } else {
       return <EmployeeCreate navigation={this.props.navigation} />
-    }       
+    }        
   }
 }
   
